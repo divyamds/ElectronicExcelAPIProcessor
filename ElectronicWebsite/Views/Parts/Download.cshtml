@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Download Processed File";
+}
+
+<h2 style="text-align:center; margin-bottom:20px;">Download Processed File</h2>
+
+<div style="max-width:600px; margin:0 auto; padding:20px; border:1px solid #ccc; border-radius:10px; box-shadow:2px 2px 12px rgba(0,0,0,0.1); background-color:#f9f9f9; text-align:center;">
+
+    <p style="margin-bottom:20px;">Your file has been processed successfully.</p>
+
+    @if (!string.IsNullOrEmpty(ViewBag.FilePath))
+    {
+        <a href="@Url.Action("DownloadFile", "Parts", new { filePath = ViewBag.FilePath })"
+           style="display:inline-block; padding:12px 25px; border-radius:5px; background-color:#28a745; color:white; font-weight:bold; text-decoration:none; transition: background 0.3s;">
+            Download @ViewBag.FileName
+        </a>
+    }
+    else
+    {
+        <p style="color:red; font-weight:bold;">No file available to download.</p>
+    }
+
+    <div style="margin-top:20px;">
+        <a href="@Url.Action("Index", "Parts")"
+           style="display:inline-block; padding:8px 20px; border-radius:5px; background-color:#007bff; color:white; font-weight:bold; text-decoration:none; transition: background 0.3s;">
+            Back to Upload
+        </a>
+    </div>
+
+</div>
